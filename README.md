@@ -1,2 +1,7 @@
 # Chicken Wars
-The game you've all been waiting for, but, made with Java🍵
+
+Chicken wars is a game where you collect or level up chickens
+
+## Info
+
+There are 2 version; C++ and Java, these require compliers.
