@@ -1,4 +1,6 @@
 # Chicken Wars
+Version 0.0.3
+
 Chicken wars is a game where you collect or level up chickens
 
 ## Info
