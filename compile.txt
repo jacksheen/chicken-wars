@@ -9,7 +9,7 @@ Then enter "java [class name]"
 
   VSCODE intruction:
 
-Install the "Extension Pack for Java" extension
+Install the "Extension Pack for Java" extension or the "Code Runner" extension
 Run the code by clicking the play button at the right top.
 
     Congrats! you have ran this code
