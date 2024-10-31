@@ -15,7 +15,7 @@ public final class Player extends Entity {
 
     public final int screenX;
     public final int screenY;
-    int hasCandy = 0;
+    public int hasCandy = 0;
 
     public Player(GamePanel gp, KeyHandler keyH) {
         this.gp = gp;
@@ -56,7 +56,6 @@ public final class Player extends Entity {
             right2 = ImageIO.read(getClass().getResourceAsStream("/res/player/blue_right_2.png"));
             down1 = ImageIO.read(getClass().getResourceAsStream("/res/player/blue_back_1.png"));
             down2 = ImageIO.read(getClass().getResourceAsStream("/res/player/blue_back_2.png"));
-            fly = ImageIO.read(getClass().getResourceAsStream("/res/player/fly.png"));
         } catch(IOException e) {
             e.printStackTrace();
         }
@@ -128,10 +127,16 @@ public final class Player extends Entity {
                 case "Candy":
                     gp.playSE(1);
                     hasCandy++;
-                    speed += 6;
+                    speed += 8;
                     gp.obj[i] = null;
+                    break;
                 case "Chest":
                     gp.obj[i] = null;
+                    break;
+                case "Gus":
+                    speed = 99999;
+                    gp.obj[i] = null;
+                    break;
             }
         }
     }
@@ -141,8 +146,6 @@ public final class Player extends Entity {
         //  g2.fillRect(x, y, gp.tileSize, gp.tileSize);
 
         BufferedImage image = null;
-
-        if (gp.debug == false) {
 
         switch(direction) {
             case "up" -> {
@@ -173,9 +176,6 @@ public final class Player extends Entity {
                     image = right2;
                 }
             }
-            }
-        } else {
-            image = fly;
         }
         g2.drawImage(image, screenX, screenY, gp.tileSize, gp.tileSize, null);
 

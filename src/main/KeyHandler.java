@@ -33,12 +33,6 @@ public class KeyHandler implements KeyListener{
         if (code == KeyEvent.VK_D) {
             rightPressed = true;
         }
-        if (code == KeyEvent.VK_O) {
-            gp.zoomInOut(-1);
-        }
-        if (code == KeyEvent.VK_P) {
-            gp.zoomInOut(1);
-        }
     }
 
     @Override

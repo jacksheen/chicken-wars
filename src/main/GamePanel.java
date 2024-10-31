@@ -13,8 +13,8 @@ import tile.TileManager;
 
 public class GamePanel extends JPanel implements Runnable { 
 
-    // ! DEV SETTINGS
-    public final boolean debug = false;
+    // ! DEV SETTINGSadssdasdaasd
+    public final boolean debug = true;
 
     // ! SCREEN SETTINGS
     final int originalTileSize = 16; // 16x16 tile
@@ -41,6 +41,7 @@ public class GamePanel extends JPanel implements Runnable {
     Sound se = new Sound();
     public CollisionChecker cChecker = new CollisionChecker(this);
     public AssetSetter aSetter = new AssetSetter(this);
+    public UI ui = new UI(this);
     Thread gameThread;
 
     // ! ENTITYS AND OBJECTS
@@ -62,23 +63,6 @@ public class GamePanel extends JPanel implements Runnable {
         playMusic(0);
     }
 
-    public void zoomInOut(int i) {
-
-        int oldWorldWidth = tileSize * maxWorldCol;
-        tileSize += i;
-        int newWorldWidth = tileSize * maxWorldCol;
-
-        player.speed = (double)newWorldWidth/312;
-
-        double multiplier = (double)newWorldWidth/oldWorldWidth;
-
-        double newPlayerWorldX = player.worldX * multiplier;
-        double newPlayerWorldY = player.worldY * multiplier;
-
-        player.worldX = newPlayerWorldX;
-        player.worldY = newPlayerWorldY;
-    }
-
     public void startGameThread() {
 
         gameThread = new Thread(this);
@@ -87,8 +71,8 @@ public class GamePanel extends JPanel implements Runnable {
 
     @Override
     public void run() {
-        // delta times
-        // if lag, run at same speed
+        // * DELTA TIME
+        // * if lag, run at same speed
         double drawInterval = 1000000000/FPS;
         double delta = 0;
         long lastTime = System.nanoTime();
@@ -132,18 +116,21 @@ public class GamePanel extends JPanel implements Runnable {
 
         Graphics2D g2 = (Graphics2D)g;
 
-        // paint tiles
+        // * PAINT TILES
         tileM.draw(g2);
 
-        // paint object
+        // * PAINT OBJECTS
         for (int i = 0; i < obj.length; i++) {
             if (obj[i] != null) {
                 obj[i].draw(g2, this);
             }
         }
 
-        // paint player
+        // * PAINT PLAYER
         player.draw(g2);
+
+        // * PAINT UI
+        ui.draw(g2);
 
         g2.dispose();
     }

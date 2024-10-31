@@ -1,8 +1,10 @@
 package objects;
 
+import java.awt.Color;
 import java.awt.Graphics2D;
 import java.awt.Rectangle;
 import java.awt.image.BufferedImage;
+
 
 import main.GamePanel;
 
@@ -28,6 +30,10 @@ public class SuperObject {
         worldY - gp.tileSize < gp.player.worldY + gp.player.screenY // ? When going up
         ) {
             g2.drawImage(image, (int)screenX, (int)screenY, gp.tileSize, gp.tileSize, null);
+            if (gp.debug == true) {
+                g2.setColor(Color.BLUE);
+                g2.drawRect((int)screenX + solidArea.x, (int)screenY + solidArea.y, solidArea.width, solidArea.height);
+            }
         }
     }
     

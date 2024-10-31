@@ -8,6 +8,8 @@ import javax.sound.sampled.Clip;
 
 public class Sound {
 
+    boolean soundOn = false;
+
     Clip clip;
     URL soundURL[] = new URL[30];
 
@@ -28,12 +30,12 @@ public class Sound {
         }
     }
     public void play() {
-        clip.start();
+        // clip.start();
     }
     public void loop() {
-        clip.loop(Clip.LOOP_CONTINUOUSLY);
+        // clip.loop(Clip.LOOP_CONTINUOUSLY);
     }
     public void stop() {
-        clip.stop();
+        // clip.stop();
     }
 }

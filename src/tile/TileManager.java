@@ -1,5 +1,6 @@
 package tile;
 
+import java.awt.Color;
 import java.awt.Graphics2D;
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -110,6 +111,10 @@ public final class TileManager {
             worldY - gp.tileSize < gp.player.worldY + gp.player.screenY // ? When going up
             ) {
                 g2.drawImage(tile[tileNum].image, (int)screenX, (int)screenY, gp.tileSize, gp.tileSize, null);
+                if (gp.debug == true) {
+                    g2.setColor(Color.RED);
+                    g2.drawRect((int)screenX, (int)screenY, gp.tileSize, gp.tileSize);
+                }
             }
             
             worldCol++;

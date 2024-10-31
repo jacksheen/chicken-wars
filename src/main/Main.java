@@ -17,7 +17,7 @@ public class Main {
         JFrame window = new JFrame();
         ImageIcon icon = new ImageIcon("src/logo.png");
         window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        window.setResizable(true);
+        window.setResizable(false);
         window.setTitle("Chicken Wars");
         window.setIconImage(icon.getImage());
 
